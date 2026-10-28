@@ -1,0 +1,1204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>AVISHKARA SHARADA</title>
+    <script>
+      /* if an image file is missing, show a text placeholder instead of a broken-image icon */
+      document.addEventListener(
+        "error",
+        function (e) {
+          var t = e.target;
+          if (!t || t.tagName !== "IMG") return;
+          var fb = t.getAttribute("data-fb") || "";
+          if (t.parentNode.classList.contains("oc")) {
+            var d = document.createElement("div");
+            d.className = "ph";
+            d.textContent = fb;
+            t.replaceWith(d);
+          } else {
+            t.replaceWith(document.createTextNode(fb));
+          }
+        },
+        true,
+      );
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
+    />
+    <style>
+      :root {
+        --hero-img: url("images/Hero.jpeg"); /* hero photo file */
+        --bg: #f4f4f2;
+        --panel: #e8eaed;
+        --ink: #000;
+        --line: #cbcbc7;
+        --bar: #000;
+        --onbar: #f4f4f2;
+        --accent: #e8341c;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #151515;
+          --panel: #202124;
+          --ink: #f4f4f2;
+          --line: #3a3a3a;
+          --bar: #050505;
+          --accent: #ff4a31;
+          color-scheme: dark;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #151515;
+        --panel: #202124;
+        --ink: #f4f4f2;
+        --line: #3a3a3a;
+        --bar: #050505;
+        --accent: #ff4a31;
+        color-scheme: dark;
+      }
+      html {
+        scroll-padding-top: calc(76px + env(safe-area-inset-top, 0px));
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          400 16px/1.65 "Plus Jakarta Sans",
+          "Helvetica Neue",
+          Arial,
+          sans-serif;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto;
+        height: env(safe-area-inset-top, 0px);
+        background: var(--bg);
+        z-index: 30;
+      }
+      a {
+        color: inherit;
+      }
+      h1,
+      h2,
+      h3 {
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.08;
+      }
+      h2 {
+        font-size: clamp(30px, 4.6vw, 54px);
+      }
+      .wrap {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .sec {
+        padding: 80px 0;
+      }
+      .sub {
+        max-width: 52ch;
+        opacity: 0.8;
+      }
+      .center {
+        text-align: center;
+      }
+      .center .sub {
+        margin: 14px auto 0;
+      }
+      .small {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 12px;
+        display: block;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--bar);
+        color: var(--onbar);
+        padding: 13px 24px;
+        font:
+          700 15px "Plus Jakarta Sans",
+          Arial,
+          sans-serif;
+        text-decoration: none;
+        border: 1px solid var(--bar);
+        cursor: pointer;
+      }
+      .btn.out {
+        background: transparent;
+        color: var(--ink);
+        border-color: var(--ink);
+      }
+      .btn.lt {
+        background: #f4f4f2;
+        color: #000;
+        border-color: #f4f4f2;
+      }
+      :focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 2px;
+      }
+      .ph {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        overflow: hidden;
+        color: var(--ink);
+      }
+      .ph.dark {
+        background: #000;
+        border-color: #000;
+        color: #f4f4f2;
+      }
+      .ph img,
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* navbar */
+      .nav {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 40;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 68px;
+        gap: 24px;
+      }
+      .logo {
+        font-weight: 800;
+        font-size: 22px;
+        text-decoration: none;
+        letter-spacing: -0.03em;
+      }
+      .logo i {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        margin-left: 3px;
+      }
+      .menu {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        margin: 0 auto;
+      }
+      .menu a {
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 15px;
+      }
+      .burger {
+        display: none;
+        background: none;
+        border: 1px solid var(--ink);
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+      }
+      .burger span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--ink);
+      }
+
+      /* hero */
+      .hero {
+        margin: 12px 12px 0;
+        background: #2b2b2b var(--hero-img) center/cover;
+        color: #f4f4f2;
+        position: relative;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 80px 24px 120px;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+      }
+      .hero div {
+        position: relative;
+        max-width: 760px;
+      }
+      .hero h1 {
+        font-size: clamp(42px, 8vw, 92px);
+        text-transform: uppercase;
+        margin: 12px 0 20px;
+      }
+      .hero p {
+        margin: 0 auto 28px;
+        max-width: 52ch;
+      }
+      .finder {
+        position: relative;
+        max-width: 940px;
+        margin: -64px auto 0;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        padding: 22px 8px 22px;
+        z-index: 2;
+      }
+      .finder > b {
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 14px;
+      }
+      .finder ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .finder li {
+        padding: 0 20px;
+        border-left: 1px solid var(--line);
+        font-weight: 700;
+        text-align: center;
+      }
+      .finder li:first-child {
+        border-left: 0;
+      }
+      .finder li span {
+        display: block;
+        font-weight: 400;
+        font-size: 13px;
+        opacity: 0.75;
+      }
+
+      /* featured + browse */
+      .row4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: 32px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 20px;
+        margin-top: 36px;
+      }
+      .pc {
+        text-decoration: none;
+        display: block;
+      }
+      .thumb {
+        aspect-ratio: 1/1;
+        margin-bottom: 12px;
+      }
+      .pc b {
+        display: block;
+        font-size: 16px;
+        line-height: 1.3;
+      }
+      .pc span {
+        font-size: 14px;
+        opacity: 0.75;
+      }
+
+      /* about */
+      .about {
+        background: var(--panel);
+      }
+      .about .wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .about .ph {
+        aspect-ratio: 3/4;
+      }
+      .about p {
+        margin: 18px 0 26px;
+      }
+      .nums b {
+        display: block;
+        font-size: 50px;
+        font-weight: 800;
+        line-height: 1.05;
+      }
+      .nums div {
+        margin-bottom: 20px;
+      }
+      .nums hr {
+        border: 0;
+        border-top: 1px solid var(--line);
+        margin: 0 0 18px;
+      }
+
+      /* organisers (rail) */
+      .rail {
+        overflow: hidden;
+        padding: 56px 0 8px;
+      }
+      .rail .row {
+        display: flex;
+        width: max-content;
+        align-items: flex-start;
+        animation: drift 30s linear infinite;
+      }
+      @keyframes drift {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-25%);
+        }
+      }
+      .oc {
+        width: 176px;
+        position: relative;
+        flex: none;
+        margin-right: 16px;
+      }
+      .oc .ph,
+      .oc img {
+        aspect-ratio: 3/4;
+        width: 100%;
+        height: auto;
+        display: flex;
+        object-fit: cover;
+        object-position: center top;
+      }
+      .oc .cap {
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+        background: var(--bg);
+        color: var(--ink);
+        padding: 8px 10px;
+        font-size: 13px;
+        line-height: 1.3;
+      }
+      .oc .cap b {
+        display: block;
+      }
+
+      /* projects */
+      .project {
+        padding: 80px 0;
+        border-top: 1px solid var(--line);
+      }
+      .project:nth-of-type(even) {
+        background: var(--panel);
+      }
+      .phead {
+        display: flex;
+        align-items: baseline;
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+      .phead h2 {
+        font-size: clamp(34px, 5.5vw, 68px);
+      }
+      .phead span {
+        background: var(--bar);
+        color: var(--onbar);
+        font-weight: 700;
+        font-size: 13px;
+        padding: 4px 12px;
+      }
+      .desc {
+        max-width: 68ch;
+        margin-bottom: 36px;
+        white-space: pre-line;
+      }
+      .feat {
+        max-width: 68ch;
+        margin-bottom: 36px;
+      }
+      .feat li {
+        list-style: none;
+        position: relative;
+        padding: 9px 0 9px 22px;
+        border-top: 1px solid var(--line);
+      }
+      .feat li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 19px;
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+      }
+      .project h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
+      .members {
+        list-style: none;
+        border-bottom: 1px solid var(--ink);
+        margin-bottom: 44px;
+      }
+      .members li {
+        display: grid;
+        grid-template-columns: 72px 1fr auto;
+        gap: 20px;
+        align-items: center;
+        padding: 16px 0;
+        border-top: 1px solid var(--ink);
+      }
+      .avatar {
+        width: 72px;
+        height: 72px;
+        background: var(--bar);
+        color: var(--onbar);
+        font-weight: 800;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+      .members strong {
+        font-size: 18px;
+        line-height: 1.25;
+      }
+      .links {
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        align-items: start;
+      }
+      .gallery .thumb {
+        aspect-ratio: auto;
+        margin: 0;
+      }
+      .gallery .thumb img {
+        height: auto;
+      }
+      .gallery .thumb.ph {
+        aspect-ratio: 4/3;
+      }
+
+      /* footer */
+      .foot {
+        background: var(--bar);
+        color: var(--onbar);
+        padding: 64px 0 24px;
+        margin-top: 0;
+      }
+      .foot .wrap {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: 40px;
+      }
+      .foot .logo {
+        font-size: 30px;
+        display: block;
+        margin-bottom: 14px;
+      }
+      .foot h3 {
+        font-size: 18px;
+        margin-bottom: 14px;
+      }
+      .foot ul {
+        list-style: none;
+      }
+      .foot li {
+        margin-bottom: 8px;
+        font-size: 15px;
+      }
+      .foot a {
+        text-decoration: none;
+      }
+      .copy {
+        max-width: 1240px;
+        margin: 48px auto 0;
+        padding: 20px 24px 0;
+        border-top: 1px solid #444;
+        font-size: 14px;
+      }
+
+      /* responsive */
+      @media (max-width: 900px) {
+        .burger {
+          display: flex;
+        }
+        .nav .btn {
+          display: none;
+        }
+        .menu {
+          display: none;
+          position: absolute;
+          top: 68px;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          gap: 0;
+          background: var(--bg);
+          border-bottom: 1px solid var(--line);
+          margin: 0;
+        }
+        .menu.open {
+          display: flex;
+        }
+        .menu a {
+          display: block;
+          padding: 16px 24px;
+          border-top: 1px solid var(--line);
+        }
+        .about .wrap {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .about .ph {
+          aspect-ratio: 4/3;
+        }
+        .row4 {
+          grid-template-columns: 1fr 1fr;
+        }
+        .foot .wrap {
+          grid-template-columns: 1fr 1fr;
+        }
+        .sec,
+        .project {
+          padding: 56px 0;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .hero {
+          min-height: 520px;
+        }
+        .finder ul {
+          grid-template-columns: 1fr 1fr;
+          row-gap: 16px;
+        }
+        .finder li:nth-child(3) {
+          border-left: 0;
+        }
+        .members li {
+          grid-template-columns: 56px 1fr;
+        }
+        .avatar {
+          width: 56px;
+          height: 56px;
+          font-size: 18px;
+        }
+        .links {
+          grid-column: 1/-1;
+        }
+        .gallery,
+        .row4,
+        .foot .wrap {
+          grid-template-columns: 1fr;
+        }
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .oc {
+          width: 140px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap">
+        <a class="logo" href="#home">BCA<i></i></a>
+        <button
+          class="burger"
+          id="burger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="menu" id="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#projects-top">Projects</a></li>
+        </ul>
+        <a class="btn" href="#projects-top">View projects</a>
+      </div>
+    </header>
+
+    <main>
+      <!--  hero  -->
+      <section class="hero" id="home">
+        <div>
+          <span class="small">NATIONAL LEVEL PU COLLEGE FEST 2026</span>
+          <h1>AVISHKARA SHARADA</h1>
+          <p>
+            Avishkara Sharada 2026 is a National-Level PU College Fest organized
+            by Sharada Degree College, bringing together young minds from
+            different institutions to celebrate creativity, talent, innovation,
+            and teamwork.
+          </p>
+          <a class="btn lt" href="#projects-top">Explore projects</a>
+        </div>
+      </section>
+      <section class="wrap">
+        <div class="finder">
+          <b>Find us here</b>
+          <ul>
+            <li><span>Venue</span>BHUVARAHA AUDITORIUM</li>
+            <li><span>Date</span>29 OCTOBER 2026</li>
+            <li><span>Time</span>10:00 AM TO 4:00 PM</li>
+            <li><span>Entry</span>FREE</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sec wrap">
+        <h2>Featured projects</h2>
+        <div class="row4" id="featured"></div>
+      </section>
+
+      <!--  about + numbers -->
+      <section class="sec about" id="about">
+        <div class="wrap">
+          <div>
+            <span class="small">About the exhibition</span>
+            <h2>Nine projects, one showcase</h2>
+            <p>
+              Avishkara Sharada 2026 is a National-Level PU College Fest
+              organized by Sharada Degree College, bringing together young minds
+              from different institutions to celebrate creativity, talent,
+              innovation, and teamwork. As part of this prestigious event, BCA
+              students presented 9 innovative projects across multiple
+              categories, showcasing their technical skills, creative thinking,
+              problem-solving abilities, and passion for technology. The
+              projects reflect the students’ dedication to innovation and their
+              commitment to transforming ideas into practical solutions.
+            </p>
+            <a class="btn" href="#team">Meet the team</a>
+          </div>
+          <div class="ph dark">
+            <img
+              src="images/About.jpeg"
+              alt="Avishkara Sharada 2026"
+              data-fb="About image"
+            />
+          </div>
+          <div class="nums">
+            <div><b>9</b>Projects on show</div>
+            <div><b>24</b>Student makers</div>
+            <hr />
+            <span class="small">Supported by</span
+            ><b style="font-size: 22px">BCA</b>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec center" id="team">
+        <div class="wrap">
+          <h2>Meet our organizing team</h2>
+          <p class="sub">
+            Brought together by a passionate team dedicated to making it happen.
+          </p>
+          <p style="margin-top: 26px">
+            <a class="btn out" href="#about">About the event</a>
+          </p>
+        </div>
+        <div class="rail"><div class="row" id="rail"></div></div>
+      </section>
+
+      <section class="sec wrap center" id="projects-top">
+        <h2>Browse all projects</h2>
+        <p class="sub">Select a project to read about it and meet its team.</p>
+        <div class="grid" id="browse"></div>
+      </section>
+
+      <div id="projects"></div>
+    </main>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div>
+          <a class="logo" href="#home">BCA<i></i></a>
+          <p style="max-width: 34ch; opacity: 0.8">
+            2026 Avishkara Sharada | Showcasing Innovation, Celebrating
+            Creativity, Inspiring Tomorrow.
+          </p>
+        </div>
+        <div>
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#projects">Projects</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Projects</h3>
+          <ul>
+            <li><a href="#p1">JARVIS</a></li>
+            <li><a href="#p2">CamPhish</a></li>
+            <li><a href="#p3">Wi-Fi Password using CMD</a></li>
+            <li><a href="#projects">See all</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Venue</h3>
+          <ul>
+            <li>BHUVARAHA AUDITORIUM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copy">&copy; 2026 Avishkara Sharada. Organised by BCA.</div>
+    </footer>
+
+    <script>
+      const IMG_DIR = "images/";
+      const pic = (f) => (f ? IMG_DIR + f : "");
+      const url = (base, v) => (!v ? "" : /^https?:/i.test(v) ? v : base + v);
+      const m = (name, li, gh, email, photo) => ({
+        name,
+        linkedin: url("https://www.linkedin.com/in/", li),
+        github: url("https://github.com/", gh),
+        email,
+        avatar: pic(photo),
+      });
+
+      /* people who appear in more than one project */
+      const PREETHAM = m(
+        "PREETHAM A M",
+        "preetham-am-6ba0ba35b",
+        "preetham-cmd",
+        "prithuzz06@gmail.com",
+        "Preetham.jpeg",
+      );
+      const MITHUN = m(
+        "MITHUN C",
+        "mithun-c",
+        "Mithun-ksd",
+        "mithunc15kasaragod@gmail.com",
+        "Mithun.jpeg",
+      );
+      const PRATHIKSHA = m(
+        "PRATHIKSHA",
+        "",
+        "",
+        "prathiksha5431@gmail.com",
+        "Prathiksha.jpeg",
+      );
+
+      /* Face Mirror text  */
+      const FACE_TEXT =
+        "Face Mirror is a smart mirror. The camera finds every face it can see, draws a box around it and counts how many people are there. It does not know who anyone is.";
+      const FACE_FEATURES = [
+        "Finds many faces at once and counts them",
+        "Steady boxes with a number for each face",
+        "Eye finder you can switch on and off",
+        "Blur mode that hides faces to keep people private",
+        "Photo button that saves a picture",
+        "Runs on your own computer, with no internet needed",
+      ];
+
+      const PROJECTS = [
+        {
+          name: "JARVIS",
+          tag: "AI Assistant",
+          description:
+            "Jarvis AI is an AI-powered virtual assistant designed to make everyday tasks easier, faster, and more efficient. It helps users find information, answer questions, solve problems, and improve productivity through intelligent conversations. The system aims to provide a user-friendly interface, quick responses, and smart assistance using Artificial Intelligence and Natural Language Processing (NLP).",
+          members: [
+            PREETHAM,
+            m(
+              "NISHA P",
+              "nisha-satheesha30a96333",
+              "",
+              "np629355@gmail.com",
+              "Nisha.jpeg",
+            ),
+            m(
+              "MEGHA",
+              "megha-gatty-2502753a8",
+              "",
+              "meghaofficial6282@gmail.com",
+              "Megha.jpeg",
+            ),
+            m(
+              "SAKETH K",
+              "",
+              "saketh9353-dot",
+              "ksaketh71@gmail.com",
+              "Saketh.jpeg",
+            ),
+          ],
+          images: ["P1_1.jpeg", "P1_2.jpeg", "P1_3.jpeg", "P1_4.jpeg"],
+        },
+        {
+          name: "CamPhish",
+          tag: "Cybersecurity",
+          description:
+            "CamPhish is a phishing-based tool that demonstrates how attackers may trick users into granting camera access through deceptive links. It is commonly associated with cybersecurity demonstrations and social engineering, where users may be misled into sharing camera images or other information.",
+          members: [
+            m(
+              "KARTHIK POOJARY",
+              "karthik-poojary-455295323",
+              "",
+              "Kaerhikpoojary007@gmail.com",
+              "karthik.jpeg",
+            ),
+            PREETHAM,
+          ],
+          images: ["P2_1.jpeg", "P2_2.jpeg", "P2_3.jpeg", "P2_4.jpeg"],
+        },
+        {
+          name: "Wi-Fi Password using CMD",
+          tag: "Cybersecurity",
+          description:
+            "Retrieving a saved Wi-Fi password using CMD (Command Prompt) in Windows allows users to view the password of a previously connected Wi-Fi network using the netsh command. This is useful for recovering forgotten passwords for authorized networks.",
+          members: [
+            PRATHIKSHA,
+            m(
+              "RAKSHITH C",
+              "rakshith-c-9692b7130",
+              "",
+              "rakshithcpoojary@gmail.com",
+              "Rakshith.jpeg",
+            ),
+          ],
+          images: ["P3_1.jpeg", "P3_2.jpeg", "P3_3.jpeg", "P3_4.jpeg"],
+        },
+        {
+          name: "4Luv",
+          tag: "Web Development",
+          description:
+            "4Luv is a free birthday wish website. Anyone can create a personalized birthday page for someone special, choose a cake, decorations and a theme, and share it with a private link. No account is needed.",
+          features: [
+            "Live preview while creating a wish",
+            "5 cakes, 5 decorations (pick any number) and 5 themes",
+            "Custom link name (3-30 lowercase letters, numbers or hyphens)",
+            "Copy and native share buttons (share sheet on phones)",
+            "Replay animation on the wish page",
+            "Friendly “wish not found” page",
+            "No sign-up or login",
+          ],
+          members: [
+            m(
+              "RAJALAKSHMI",
+              "rajalakshmi-k1b1960429",
+              "",
+              "krajalakshmi860@gmail.com",
+              "raju.jpeg",
+            ),
+            m(
+              "SWATHIPRIYA",
+              "",
+              "",
+              "Swathidevadiga139@gmail.com",
+              "swathi.jpeg",
+            ),
+            m(
+              "VISHWAS",
+              "vishwas-acharyaa63420429",
+              "",
+              "vishwasacharyavishwasacharya2@gmail.com",
+              "vishwa.jpeg",
+            ),
+            MITHUN,
+          ],
+          images: ["P4_1.jpeg", "P4_2.jpeg", "P4_3.jpeg", "P4_4.jpeg"],
+        },
+        {
+          name: "Air Piano",
+          tag: "AI/ML",
+          description:
+            "Air Piano is a piano you play in the air. Point your finger at a key on the screen and the note plays, with no keyboard and no touching.",
+          features: [
+            "13 keys: 8 white and 5 black, from C to the next C",
+            "Works with two hands at the same time",
+            "Piano-like sound, made by the computer with no sound files",
+            "Keys light up when you play them",
+            "Steady pointer that does not shake",
+            "Volume control and mute button",
+          ],
+          members: [
+            m(
+              "APTHA S RAI",
+              "aptha-rai-81668a447",
+              "",
+              "aptharai674@gmail.com",
+              "Aptha.jpeg",
+            ),
+            m(
+              "PREKSHA K",
+              "preksha-k-59343a285",
+              "",
+              "kpreksha08@gmail.com",
+              "Preksha.jpeg",
+            ),
+            m(
+              "KARTHIK KULAL",
+              "karthik-undefined767843435",
+              "",
+              "karthikulal883@gmail.com",
+              "Karthik1.jpeg",
+            ),
+            MITHUN,
+          ],
+          images: ["P5_1.jpeg", "P5_2.jpeg", "P5_3.jpeg", "P5_4.jpeg"],
+        },
+        {
+          name: "Magic Hands",
+          tag: "AI/ML",
+          description: FACE_TEXT,
+          features: FACE_FEATURES,
+          members: [
+            m(
+              "DIYA R RAI",
+              "diya-rai-358720447",
+              "",
+              "raidiya1758@gmail.com",
+              "Diya.jpeg",
+            ),
+            PRATHIKSHA,
+            MITHUN,
+          ],
+          images: ["P6_1.jpeg", "P6_2.jpeg", "P6_3.jpeg", "P6_4.jpeg"],
+        },
+        {
+          name: "Face Mirror",
+          tag: "AI/ML",
+          description: FACE_TEXT,
+          features: FACE_FEATURES,
+          members: [
+            m(
+              "AKSHAY M",
+              "akshay-m-9517a2405",
+              "akshay-dev-web",
+              "kuttyakshay24@gmail.com",
+              "Akshay.jpeg",
+            ),
+            m(
+              "JAYASURYA H S",
+              "",
+              "",
+              "jayasooryahs02@gmail.com",
+              "Surya.jpeg",
+            ),
+            m(
+              "SAGAR",
+              "sagar-shetty-2b902a396",
+              "",
+              "ssagarshetty4@gmail.com",
+              "Sagar.jpeg",
+            ),
+            MITHUN,
+          ],
+          images: ["P7_1.jpeg", "P7_2.jpeg", "P7_3.jpeg", "P7_4.jpeg"],
+        },
+        {
+          name: "Keystroke",
+          tag: "Cybersecurity",
+          description:
+            "RhythmID is a secure login system that uses typing rhythm-based biometric authentication to verify a user’s identity. It analyses keystroke timing and typing patterns to identify unique behavioural characteristics. During registration, the system collects typing samples to create a unique biometric profile for each user. The project is developed using Node.js, Express.js, HTML, CSS, and JavaScript. It incorporates password hashing and session management to improve security. By combining traditional password authentication with behavioural biometrics, RhythmID provides an additional layer of protection against unauthorized access.",
+          members: [
+            m(
+              "DEEKSHA A.S",
+              "deeksha-s-7a8bb6333",
+              "",
+              "ds1796014@gmail.com",
+              "Deeksha.jpeg",
+            ),
+            m(
+              "DEEKSHA A",
+              "deexa-rao-491904436",
+              "",
+              "deexadeeksha@gmail.com",
+              "Deekshaa.jpeg",
+            ),
+            m(
+              "SANVI",
+              "sanvi-g-baa404439",
+              "",
+              "gattysanvi18@gmail.com",
+              "Sanvi.jpeg",
+            ),
+            PREETHAM,
+          ],
+          images: ["P8_1.jpeg", "P8_2.jpeg", "P8_3.jpeg", "P8_4.jpeg"],
+        },
+        {
+          name: "DeepFakeGuard",
+          tag: "Cybersecurity",
+          description:
+            "DeepFakeGuard is a deep learning-based project designed to detect and identify possible alterations in digital images by comparing an original image with a suspected deepfake image. The system analyses both images to identify differences in facial features, image patterns, texture, and other visual characteristics that may indicate manipulation.\n\nThe project allows users to upload an original image and a suspected deepfake image. The system processes the images, highlights the differences, and provides a comparison report to help users understand whether the suspected image may have been altered. This project aims to improve digital image verification and help identify manipulated images used for misinformation, identity misuse, and other fraudulent activities.",
+          members: [
+            m(
+              "KAVANASHRI",
+              "kavanashri-naik-06a13b405",
+              "",
+              "kavanashri26@gmail.com",
+              "Kavana.jpeg",
+            ),
+            m(
+              "NIREEKSHA",
+              "nireeksha-shetty-a97b72423",
+              "",
+              "nireekshashetty@gmail.com",
+              "Nireeksha.jpeg",
+            ),
+            m(
+              "SAANVI R BANGERA",
+              "saanvi-r-bangera-342718447",
+              "",
+              "saanvirbangera@gmail.com",
+              "Sanviii.jpeg",
+            ),
+            m(
+              "KARTHIK POOJARY",
+              "karthik-poojary-455295323",
+              "",
+              "Kaerhikpoojary007@gmail.com",
+              "Karthik.jpeg",
+            ),
+          ],
+          images: ["P9_1.jpeg", "P9_2.jpeg", "P9_3.jpeg", "P9_4.jpeg"],
+        },
+      ];
+      /* Organising team: name, role, photo file. */
+      const o = (name, role, photo) => ({ name, role, photo });
+      const ORGANISERS = [
+        o("SUPRIYA M K", "H.O.D", "supriya.jpeg"),
+        o("PRAJNA K", "ASSISTANT PROFESSOR", "prajna.jpeg"),
+        o("APARNA", "ASSISTANT PROFESSOR", "aparna.jpeg"),
+        o("SURAKSHA", "ASSISTANT PROFESSOR", "suraksha.jpeg"),
+        o("SHREYA", "ASSISTANT PROFESSOR", "shreya.jpeg"),
+        o("KARTHIK POOJARY", "DEVELOPER", "karthik.jpeg"),
+        o("MITHUN C", "DEVELOPER", "mithun.jpeg"),
+        o("PREETHAM", "DEVELOPER", "preetham.jpeg"),
+      ];
+      PROJECTS.forEach((p) => {
+        p.images = p.images.map(pic);
+      });
+      ORGANISERS.forEach((x) => {
+        x.photo = pic(x.photo);
+      });
+
+      /* ---------- rendering  ---------- */
+      const $ = (id) => document.getElementById(id);
+      const ini = (n) =>
+        n
+          .split(/\s+/)
+          .map((w) => w[0])
+          .join("")
+          .slice(0, 2)
+          .toUpperCase();
+      const cover = (p) =>
+        p.images[0]
+          ? `<img src="${p.images[0]}" alt="${p.name}" data-fb="Project image">`
+          : `Project image`;
+      const card = (p, i) =>
+        `<a class="pc" href="#p${i + 1}"><div class="thumb ph">${cover(p)}</div><b>${p.name}</b><span>${p.tag}</span></a>`;
+      $("featured").innerHTML = PROJECTS.slice(0, 4).map(card).join("");
+      $("browse").innerHTML = PROJECTS.map(card).join("");
+      /* the list is repeated 4 times so the auto-scrolling loop never shows a gap */
+      const ocard = (d) => (x) =>
+        `<div class="oc${d ? " dup" : ""}"${d ? ' aria-hidden="true"' : ""}>${x.photo ? `<img src="${x.photo}" alt="${x.name}" data-fb="Photo">` : `<div class="ph">Photo</div>`}<div class="cap"><b>${x.name}</b>${x.role}</div></div>`;
+      $("rail").innerHTML =
+        ORGANISERS.map(ocard(0)).join("") +
+        [1, 2, 3].map(() => ORGANISERS.map(ocard(1)).join("")).join("");
+      /* shows only the links a member actually has */
+      const links = (x) => {
+        const a = [
+          x.linkedin &&
+            `<a href="${x.linkedin}" target="_blank" rel="noopener">LinkedIn</a>`,
+          x.github &&
+            `<a href="${x.github}" target="_blank" rel="noopener">GitHub</a>`,
+          x.email && `<a href="mailto:${x.email}">Email</a>`,
+        ].filter(Boolean);
+        return a.length ? `<div class="links">${a.join("")}</div>` : "";
+      };
+      $("projects").innerHTML = PROJECTS.map(
+        (p, i) => `
+ <article class="project" id="p${i + 1}"><div class="wrap">
+  <div class="phead"><h2>${p.name}</h2><span>${p.tag}</span></div>
+  <p class="desc">${p.description}</p>
+  ${p.features ? `<div class="feat"><h3>Features</h3><ul>${p.features.map((f) => `<li>${f}</li>`).join("")}</ul></div>` : ""}
+  <h3>Team</h3>
+  <ul class="members">${p.members
+    .map(
+      (x) => `<li>
+   <div class="avatar">${x.avatar ? `<img src="${x.avatar}" alt="${x.name}" data-fb="${ini(x.name)}">` : ini(x.name)}</div>
+   <strong>${x.name}</strong>
+   ${links(x)}</li>`,
+    )
+    .join("")}</ul>
+  <h3>Gallery</h3>
+  <div class="gallery">${p.images.map((v, k) => `<div class="thumb ph">${v ? `<img src="${v}" alt="${p.name} image ${k + 1}" loading="lazy" data-fb="Project image ${k + 1}">` : `Project image ${k + 1}`}</div>`).join("")}</div>
+ </div></article>`,
+      ).join("");
+
+      /* hamburger menu */
+      const burger = $("burger"),
+        menu = $("menu");
+      burger.addEventListener("click", () => {
+        const o = menu.classList.toggle("open");
+        burger.setAttribute("aria-expanded", o);
+      });
+      menu.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          menu.classList.remove("open");
+          burger.setAttribute("aria-expanded", "false");
+        }),
+      );
+    </script>
+  </body>
+</html>
